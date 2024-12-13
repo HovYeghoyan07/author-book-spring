@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+</head>
+<body>
+Add Book
+
+<form action="/books/add" method="post">
+    title: <input type="text" name="title"/> <br>
+    price: <input type="number" name="price"/> <br>
+    qty: <input type="number" name="qty"/> <br>
+    Author: <select name="author.id">
+    <option th:each="author: ${authors}"
+            th:value="${author.id}"
+            th:text="${author.name + ' ' + author.surname}">
+    </option>
+</select><br>
+    <input type="submit" value="Add">
+</form>
+</body>
+</html>

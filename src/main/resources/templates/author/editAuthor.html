@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+Edit Author
+
+<form action="/author/edit" method="post">
+    <input type="hidden" name="id" th:value="${author.id}">
+    Name: <input type="text" name="name" th:value="${author.name}"/> <br>
+    Surname: <input type="text" name="surname" th:value="${author.surname}"/> <br>
+    Phone: <input type="text" name="phone" th:value="${author.phone}"/> <br>
+    DateOfBirthday: <input type="date" name="dateOfBirthday" th:value="${#dates.format(author.dateOfBirthday, 'yyyy-MM-dd')}"/> <br>
+    Gender: <select name="gender">
+    <option value="MALE" th:selected="${author.gender.name() == 'MALE'}">MALE</option>
+    <option value="FEMALE" th:selected="${author.gender.name() == 'FEMALE'}">FEMALE</option>
+</select><br>
+    <input type="submit" value="Edit">
+</form>
+</body>
+</html>

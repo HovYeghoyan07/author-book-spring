@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+Books Page
+
+<a href="/books/add">Add book</a>
+<table>
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>price</th>
+        <th>qty</th>
+        <th>author name</th>
+        <th>author surname</th>
+        <th>created at</th>
+        <th>action</th>
+    </tr>
+
+    <tr th:each="book : ${books}">
+        <td th:text="${book.getId()}"></td>
+        <td th:text="${book.getTitle()}"></td>
+        <td th:text="${book.getPrice()}"></td>
+        <td th:text="${book.getQty()}"></td>
+        <td th:text="${book.getAuthor().getName()}"></td>
+        <td th:text="${book.getAuthor().getSurname()}"></td>
+        <td th:text="${#dates.format(book.getCreatedAt(), 'dd-MM-yyyy')}"></td>
+        <td> <a th:href="@{/books/edit(id=${book.id})}">Edit</a> | <a th:href="@{/books/delete(id=${book.id})}">Delete</a> </td>
+    </tr>
+</body>
+</html>

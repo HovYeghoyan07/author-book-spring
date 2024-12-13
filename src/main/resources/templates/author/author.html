@@ -22,9 +22,9 @@ Authors Page | <a href="/author/add">Add</a>
         <td th:text="${author.getName()}"></td>
         <td th:text="${author.getSurname()}"></td>
         <td th:text="${author.getPhone()}"></td>
-        <td th:text="${author.getDateOfBirthday()}"></td>
+        <td th:text="${#dates.format(author.getDateOfBirthday(), 'dd-MM-yyyy')}"></td>
         <td th:text="${author.getGender().name()}"></td>
-        <td><a th:href="@{/author/delete(id=${author.id})"}>Delete</a></td>
+        <td><a th:href="@{/authors/edit(id=${author.id})}">Edit</a>|<a th:href="@{/author/delete(id=${author.id})}">Delete</a></td>
     </tr>
 </table>
 </body>
